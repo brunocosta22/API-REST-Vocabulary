@@ -33,6 +33,20 @@ def compound_vocabulary():
     return jsonify(Vocabulary_compost_list)
 
 
+@app.route("/Len_comp_vocabulary", methods=["GET"])
+def Len_comp_vocabulary():
+    mensage = str("O Vocabulario composto possui " + str(len(Vocabulary_compost_list)) + " itens")
+    retorno = {"status": 200, "message": mensage, "valor": len(Vocabulary_compost_list)}
+    return jsonify(retorno)
+
+
+@app.route("/Len_simple_vocabulary", methods=["GET"])
+def Len_simple_vocabulary():
+    mensage = str("O Vocabulario simples possui " + str(len(Vocabulary_list)) + " itens")
+    retorno = {"status": 200, "message": mensage, "valor": len(Vocabulary_list)}
+    return jsonify(retorno)
+
+
 @app.route("/history", methods=["GET"])
 def history():
     json_history = []
